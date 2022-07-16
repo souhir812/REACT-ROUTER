@@ -1,15 +1,4 @@
-
-import './App.css';
-import React,{useState} from 'react'
-import MovieList from './components/MovieList';
-import NavBar from './components/NavBar';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import DescriptionandTrailer from './components/DescriptionandTrailer';
-
-
-
-function App() {
-  const[movies,setMovies]=useState([
+export const movies=[
 
     {
       title: "Titanic",
@@ -118,29 +107,4 @@ function App() {
       id:10
   
     }  
-  ]);
-  const [titre,setTitre]=useState("")
-const getTitre=(titre)=>{setTitre(titre)}
-    const addmovie=(newmovie)=>setMovies([...movies,newmovie] )
-    const [rate,setrate]=useState(1) 
-    const getrate=(rate)=>{setrate(rate)}
-  return (
-    <BrowserRouter>
-    <div className="App">
-    <NavBar addmovie={addmovie}  getTitre={getTitre} getrate={getrate}/>
-    <Routes>
-    
-    <Route path='/MovieList' element={<MovieList  movies={movies} titre={titre} rate={rate} />} />
-    <Route  path='/DescriptionandTrailer/:movieId' element={<DescriptionandTrailer/>}/>
-    </Routes>
-     
-    </div>
-    
-    </BrowserRouter>
-    
-    
-    
-  );
-}
-
-export default App;
+  ]
